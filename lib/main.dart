@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/Pages/home_page.dart';
+import 'package:flutter_catalog/Pages/login_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,13 +12,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Material(
-        child: Center(
-          child: Container(
-            child: Text("Making Catalog App in Flutter"),
-          ),
-        ),
+      themeMode: ThemeMode.dark,
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
       ),
+      routes: {
+        "/": (context) => const LoginPage(),
+        "/home": (context) => const HomePage(),
+        "/login": (context) => const LoginPage()
+      },
     );
   }
 }
