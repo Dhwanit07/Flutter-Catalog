@@ -11,6 +11,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String name = "";
   bool changeButton = false;
+  final bool _passwordVisible = false;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -60,10 +61,9 @@ class _LoginPageState extends State<LoginPage> {
                   InkWell(
                     onTap: () async {
                       setState(() {
-                        // Navigator.pushNamed(context, MyRoutes.homeRoute);
                         changeButton = true;
                       });
-                      await Future.delayed(const Duration(seconds: 1));
+                      await Future.delayed(Duration(seconds: 1));
                       Navigator.pushNamed(context, MyRoutes.homeRoute);
                     },
                     child: AnimatedContainer(
